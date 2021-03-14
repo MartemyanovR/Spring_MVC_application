@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>All people</title>
+</head>
+<body>
+	<!-- проход по списку и вывод на экран -->
+	<div th:each="person : ${peoples}">
+	<!-- переход на метод showD в PeopleController для получения id person -->
+	<a  th:href="@{/people/{id}(id=${person.getId()})}" 
+	 th:text="${person.getName() +  ', age: ' +  person.getAge()}">user</a>
+	</div>
+	<br/>
+	<hr/>
+	<a th:href="@{/people/new}">Add person</a>
+</body>
+</html>

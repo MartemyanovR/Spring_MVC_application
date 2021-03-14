@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>People</title>
+<style>
+   dt {
+    float: left; /* Для размещения на одной строке */
+    width: 100px; /* Ширина для текста */
+    text-align: right; /* Выравнивание по правому краю */
+    padding-right: 5px; /* Отступ справа */
+    min-height: 1px; /* Минимальная высота */
+	}   
+  </style>
+</head>
+<body>
+	<dl>
+		<dt th:text="${person.getName()}">VALUE1 </dt>
+		<dt th:text="${person.getSurname()}">VALUE2</dt>
+		<dt th:text="${person.getAge()}">VALUE3</dt>
+		<dt th:text="${person.getEmail()}">VALUE4</dt>	
+		<dt th:text="${person.getId()}">VALUE5</dt>
+	</dl>
+	<br/>
+	<hr/>
+	<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
+	
+	<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+		<input type="submit" value="Delete">	
+	</form> 
+	
+</body>
+</html>
